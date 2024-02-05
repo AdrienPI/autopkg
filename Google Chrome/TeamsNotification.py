@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/local/autopkg/python
 # -*- coding: utf-8 -*-
 
 import json
