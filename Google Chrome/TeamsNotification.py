@@ -1,4 +1,4 @@
-#!/usr/local/autopkg/python
+#!/usr/local/bin/pythoncipeo
 # -*- coding: utf-8 -*-
 
 import json
