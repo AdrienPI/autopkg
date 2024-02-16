@@ -42,7 +42,7 @@ class CSVWriter(Processor):
         softwaretitle_name = self.env.get("softwaretitle_name")
         from_patch_management = 1        
         current_user = os.getlogin()
-        csv_file = "/Users/{current_user}/Desktop/packagesupload/PKG_Catalog.csv"
+        csv_file = f"/Users/{current_user}/Desktop/packagesupload/PKG_Catalog.csv"
         with open(csv_file, mode="a", newline="") as file:
             writer = csv.writer(file)
             writer.writerow([app_name, app_version, category, softwaretitle_name, from_patch_management])
