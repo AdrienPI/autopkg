@@ -15,10 +15,10 @@
     <string>ch.edu-vd.cipeo.GoogleChrome.download</string>
     <key>Process</key>
     <array>
-		<dict>
-			<key>Processor</key>
-			<string>com.github.grahampugh.recipes.commonprocessors/GetUserHome</string>
-		</dict>
+	<dict>
+		<key>Processor</key>
+		<string>com.github.grahampugh.recipes.CommonProcessors/GetUserHome</string>
+	</dict>
         <dict>
             <key>Processor</key>
             <string>AppDmgVersioner</string>
