@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Shared Processors for AdrienPI autopkg</string>
     <key>Identifier</key>
-    <string>com.github.AdrienPI.SharedProcessors</string>
+    <string>com.github.AdrienPI.autopkg.SharedProcessors</string>
     <key>Input</key>
     <dict/>
     <key>MinimumVersion</key>
