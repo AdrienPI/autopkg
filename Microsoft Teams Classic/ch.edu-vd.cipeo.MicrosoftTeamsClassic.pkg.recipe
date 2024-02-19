@@ -27,15 +27,6 @@
             <key>Arguments</key>
             <dict>
                 <key>predicate</key>
-                <string>%RECIPE_CACHE_DIR%/%VENDOR%%SOFTWARETITLE1%%SOFTWARETITLE2%-%version%.pkg exists</string>
-            </dict>
-            <key>Processor</key>
-            <string>StopProcessingIf</string>
-        </dict>
-        <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>predicate</key>
                 <string>new_package_request == FALSE</string>
             </dict>
             <key>Processor</key>
@@ -94,6 +85,15 @@
                  <string>%RECIPE_CACHE_DIR%/downloads/payload</string>
               </array>
            </dict>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>predicate</key>
+                <string>%RECIPE_CACHE_DIR%/%VENDOR%%SOFTWARETITLE1%%SOFTWARETITLE2%-%version%.pkg exists</string>
+            </dict>
+            <key>Processor</key>
+            <string>StopProcessingIf</string>
         </dict>
         <dict>
            <key>Processor</key>
