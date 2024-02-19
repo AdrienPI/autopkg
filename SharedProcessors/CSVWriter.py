@@ -42,7 +42,7 @@ class CSVWriter(Processor):
         category = self.env.get("category")
         softwaretitle_name = self.env.get("softwaretitle_name")
         from_patch_management = 1
-        loggedInUser = subprocess.check_output("(/bin/ls -l /dev/console | /usr/bin/awk '{ print $3 }')",shell=True).decode("utf-8")
+        loggedInUser = subprocess.check_output("(/bin/ls -l /dev/console | /usr/bin/awk '{ print $3 }')",shell=True).decode("utf-8").rstrip("\n")
         csv_file = f"/Users/{loggedInUser}/Desktop/packagesupload/PKG_Catalog.csv"
 
         with open(csv_file, mode="a", newline="") as file:
