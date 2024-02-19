@@ -24,6 +24,15 @@
     <key>Process</key>
     <array>
         <dict>
+          <key>Processor</key>
+          <string>StopProcessingIf</string>
+          <key>Arguments</key>
+          <dict>
+            <key>predicate</key>
+            <string>TRUEPREDICATE</string>
+          </dict>
+	</dict>
+        <dict>
            <key>Arguments</key>
            <dict>
               <key>destination_path</key>
@@ -77,15 +86,6 @@
               </array>
            </dict>
         </dict>
-        <dict>
-          <key>Processor</key>
-          <string>StopProcessingIf</string>
-          <key>Arguments</key>
-          <dict>
-            <key>predicate</key>
-            <string>TRUEPREDICATE</string>
-          </dict>
-	</dict>
         <dict>
            <key>Processor</key>
            <string>PkgCopier</string>
