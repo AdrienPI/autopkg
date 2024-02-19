@@ -26,10 +26,8 @@
         <dict>
             <key>Arguments</key>
             <dict>
-                <key>comparison_key</key>
-                <string>version</string>
-                <key>value</key>
-                <string>%version%</string>
+                <key>predicate</key>
+                <string>%RECIPE_CACHE_DIR%/%VENDOR%%SOFTWARETITLE1%%SOFTWARETITLE2%-%version%.pkg exists</string>
             </dict>
             <key>Processor</key>
             <string>StopProcessingIf</string>
