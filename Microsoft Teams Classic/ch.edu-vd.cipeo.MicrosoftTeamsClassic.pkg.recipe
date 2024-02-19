@@ -21,6 +21,8 @@
     </dict>
     <key>ParentRecipe</key>
     <string>ch.edu-vd.cipeo.MicrosoftTeamsClassic.download</string>
+    <key>Process</key>
+    <array>
         <dict>
             <key>Arguments</key>
             <dict>
@@ -32,8 +34,6 @@
             <key>Processor</key>
             <string>StopProcessingIf</string>
         </dict>
-    <key>Process</key>
-    <array>
         <dict>
             <key>Arguments</key>
             <dict>
