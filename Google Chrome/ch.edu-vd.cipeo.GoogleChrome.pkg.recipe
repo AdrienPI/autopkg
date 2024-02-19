@@ -17,7 +17,7 @@
     <array>
 	<dict>
 		<key>Processor</key>
-		<string>com.github.grahampugh.recipes.CommonProcessors/GetUserHome</string>
+		<string>com.github.adrienpi.autopkg.sharedprocessors/GetUserHome</string>
 	</dict>
         <dict>
             <key>Processor</key>
