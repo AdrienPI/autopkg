@@ -104,7 +104,7 @@
 		</dict>
 		<dict>
         	<key>Processor</key>
-        	<string>com.github.adrienpi.SharedProcessors/CSVWriter</string>
+        	<string>com.github.adrienpi.autopkg.SharedProcessors/CSVWriter</string>
         	<key>Arguments</key>
         	<dict>
 				<key>app_name</key>
@@ -159,7 +159,7 @@
 		</dict>
 		<dict>
         	<key>Processor</key>
-        	<string>CSVWriter</string>
+        	<string>com.github.adrienpi.autopkg.SharedProcessors/CSVWriter</string>
         	<key>Arguments</key>
         	<dict>
 				<key>app_name</key>
