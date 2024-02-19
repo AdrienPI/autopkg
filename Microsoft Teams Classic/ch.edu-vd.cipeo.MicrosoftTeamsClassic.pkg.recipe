@@ -21,6 +21,17 @@
     </dict>
     <key>ParentRecipe</key>
     <string>ch.edu-vd.cipeo.MicrosoftTeamsClassic.download</string>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>comparison_key</key>
+                <string>version</string>
+                <key>value</key>
+                <string>%version%</string>
+            </dict>
+            <key>Processor</key>
+            <string>StopProcessingIf</string>
+        </dict>
     <key>Process</key>
     <array>
         <dict>
