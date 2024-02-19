@@ -24,15 +24,6 @@
     <key>Process</key>
     <array>
         <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>predicate</key>
-                <string>new_package_request == FALSE</string>
-            </dict>
-            <key>Processor</key>
-            <string>StopProcessingIf</string>
-        </dict>
-        <dict>
            <key>Arguments</key>
            <dict>
               <key>destination_path</key>
