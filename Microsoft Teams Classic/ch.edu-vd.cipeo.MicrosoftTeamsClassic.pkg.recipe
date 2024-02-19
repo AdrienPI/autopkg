@@ -94,6 +94,7 @@
             <key>predicate</key>
             <string>TRUEPREDICATE</string>
           </dict>
+	</dict>
         <dict>
            <key>Processor</key>
            <string>PkgCopier</string>
