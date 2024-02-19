@@ -17,7 +17,7 @@
     <array>
 		<dict>
 			<key>Processor</key>
-			<string>com.github.grahampugh.recipes.commonprocessors/GetUserHome</string>
+			<string>com.github.adrienpi.SharedProcessors/GetUserHome</string>
 		</dict>
         <dict>
             <key>Processor</key>
@@ -104,7 +104,7 @@
 		</dict>
 		<dict>
         	<key>Processor</key>
-        	<string>CSVWriter</string>
+        	<string>com.github.adrienpi.SharedProcessors/CSVWriter</string>
         	<key>Arguments</key>
         	<dict>
 				<key>app_name</key>
@@ -159,7 +159,7 @@
 		</dict>
 		<dict>
         	<key>Processor</key>
-        	<string>CSVWriter</string>
+        	<string>com.github.adrienpi.SharedProcessors/CSVWriter</string>
         	<key>Arguments</key>
         	<dict>
 				<key>app_name</key>
