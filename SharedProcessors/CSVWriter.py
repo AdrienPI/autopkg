@@ -2,6 +2,7 @@
 
 import csv
 import os
+import subprocess
 
 from autopkglib import Processor, ProcessorError
 
@@ -40,8 +41,9 @@ class CSVWriter(Processor):
         app_version = self.env.get("app_version")
         category = self.env.get("category")
         softwaretitle_name = self.env.get("softwaretitle_name")
-        from_patch_management = 1        
-        csv_file = "/Users/adrien.pichard/Desktop/packagesupload/PKG_Catalog.csv"
+        from_patch_management = 1
+        loggedInUser = subprocess.check_output("(/bin/ls -l /dev/console | /usr/bin/awk '{ print $3 }')",shell=True).decode("utf-8")
+        csv_file = f"/Users/{loggedInUser}/Desktop/packagesupload/PKG_Catalog.csv"
 
         with open(csv_file, mode="a", newline="") as file:
             writer = csv.writer(file)
