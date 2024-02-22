@@ -129,6 +129,15 @@
 			    <string>%pkg_path%</string>
 			</dict>
 		</dict>
+		<dict>
+		    <key>Processor</key>
+		    <string>StopProcessingIf</string>
+		    <key>Arguments</key>
+		    <dict>
+		        <key>predicate</key>
+		        <string>version_exists == True</string>
+		    </dict>
+		</dict>
         <dict>
            <key>Processor</key>
            <string>PkgCopier</string>
