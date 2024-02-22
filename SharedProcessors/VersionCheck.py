@@ -12,7 +12,7 @@ class VersionCheck(Processor):
             "required": True,
             "description": "The version of the package to check."
         },
-        "directory": {
+        "pkg_path": {
             "required": True,
             "description": "The directory to check for the existence of the package version."
         }
@@ -25,16 +25,13 @@ class VersionCheck(Processor):
 
     def main(self):
         version = self.env.get("version")
-        directory = self.env.get("directory")
+        pkg_path = self.env.get("pkg_path")
 
         # Check if the specified version exists in the directory
-        for filename in os.listdir(directory):
-            if filename.endswith('.pkg'):
-                pkg_version = filename.split('-')[-1].split('.')[0]
-                if pkg_version == version:
-                    self.env["version_exists"] = True
-                    self.output(f"Version {version} is already downloaded.")
-                    return
+        if version in pkg_path:
+            self.env["version_exists"] = True
+            self.output(f"Version {version} is already downloaded.")
+            return
         # Version not found
         self.env["version_exists"] = False
         self.output(f"Version {version} is not yet downloaded.")
