@@ -78,15 +78,6 @@
            </dict>
         </dict>
         <dict>
-          <key>Processor</key>
-          <string>StopProcessingIf</string>
-          <key>Arguments</key>
-          <dict>
-            <key>predicate</key>
-            <string>TRUEPREDICATE</string>
-          </dict>
-	</dict>
-        <dict>
            <key>Processor</key>
            <string>PkgCopier</string>
            <key>Arguments</key>
