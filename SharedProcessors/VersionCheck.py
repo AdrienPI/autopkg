@@ -29,7 +29,7 @@ class VersionCheck(Processor):
 
         # Check if the specified version exists in the directory
         for filename in os.listdir(pkg_path):
-            if filename.endswith('.pkg') and app_name in filename:
+            if filename.endswith('.pkg') in filename:
                 pkg_version = filename.split('-')[-1].rstrip(".pkg")
                 if pkg_version == version:
                     self.env["version_exists"] = True
