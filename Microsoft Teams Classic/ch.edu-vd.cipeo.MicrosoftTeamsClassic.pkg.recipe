@@ -108,14 +108,15 @@
         	<string>com.github.adrienpi.SharedProcessors/CSVWriter</string>
         	<key>Arguments</key>
         	<dict>
-			<key>app_name</key>
-			<string>%VENDOR%%SOFTWARETITLE1%%SOFTWARETITLE2%-%version%.pkg</string>
-			<key>app_version</key>
-			<string>%version%</string>
-			<key>category</key>
-			<string>Bureautique</string>
-			<key>softwaretitle_name</key>
-			<string>Microsoft Teams Classic</string>
+				<key>app_name</key>
+				<string>%VENDOR%%SOFTWARETITLE1%%SOFTWARETITLE2%-%version%.pkg</string>
+				<key>app_version</key>
+				<string>%version%</string>
+				<key>category</key>
+				<string>Bureautique</string>
+				<key>softwaretitle_name</key>
+				<string>Microsoft Teams Classic</string>
+			</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
@@ -128,17 +129,17 @@
 			    <string>%pkg_path%</string>
 			</dict>
 		</dict>
-	        <dict>
-	           <key>Processor</key>
-	           <string>PkgCopier</string>
-	           <key>Arguments</key>
-	           <dict>
-	              <key>source_pkg</key>
-	              <string>%pathname%</string>
-	              <key>pkg_path</key>
-	              <string>%RECIPE_CACHE_DIR%/%VENDOR%%SOFTWARETITLE1%%SOFTWARETITLE2%-latest.pkg</string>
-	           </dict>
-	        </dict>
+        <dict>
+           <key>Processor</key>
+           <string>PkgCopier</string>
+           <key>Arguments</key>
+           <dict>
+              <key>source_pkg</key>
+              <string>%pathname%</string>
+              <key>pkg_path</key>
+              <string>%RECIPE_CACHE_DIR%/%VENDOR%%SOFTWARETITLE1%%SOFTWARETITLE2%-latest.pkg</string>
+           </dict>
+        </dict>
 		<dict>
         	<key>Processor</key>
         	<string>Copier</string>
