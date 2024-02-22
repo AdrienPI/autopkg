@@ -90,6 +90,26 @@
         </dict>
 		<dict>
 			<key>Processor</key>
+			<string>com.github.adrienpi.SharedProcessors/VersionCheck</string>
+			<key>Arguments</key>
+			<dict>
+			    <key>version</key>
+			    <string>%version%</string>
+			    <key>pkg_path</key>
+			    <string>%pkg_path%</string>
+			</dict>
+		</dict>
+		<dict>
+		    <key>Processor</key>
+		    <string>StopProcessingIf</string>
+		    <key>Arguments</key>
+		    <dict>
+		        <key>predicate</key>
+		        <string>version_exists == True</string>
+		    </dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
 			<string>com.github.adrienpi.SharedProcessors/GetUserHome</string>
 		</dict>
 		<dict>
@@ -117,26 +137,6 @@
 				<key>softwaretitle_name</key>
 				<string>Microsoft Teams Classic</string>
 			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>com.github.adrienpi.SharedProcessors/VersionCheck</string>
-			<key>Arguments</key>
-			<dict>
-			    <key>version</key>
-			    <string>%version%</string>
-			    <key>pkg_path</key>
-			    <string>%pkg_path%</string>
-			</dict>
-		</dict>
-		<dict>
-		    <key>Processor</key>
-		    <string>StopProcessingIf</string>
-		    <key>Arguments</key>
-		    <dict>
-		        <key>predicate</key>
-		        <string>version_exists == True</string>
-		    </dict>
 		</dict>
         <dict>
            <key>Processor</key>
