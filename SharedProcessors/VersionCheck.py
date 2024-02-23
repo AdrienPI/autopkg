@@ -37,7 +37,7 @@ class VersionCheck(Processor):
                     return
         # Version not found
         self.env["version_exists"] = False
-        self.output(f"Version {version} is not yet downloaded.")
+        self.output(f"Version {version} is not yet downloaded, setting up download...")
 
 
 if __name__ == "__main__":
