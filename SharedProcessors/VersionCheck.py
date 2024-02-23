@@ -27,7 +27,6 @@ class VersionCheck(Processor):
         version = self.env.get("version")
         pkg_path = self.env.get("pkg_path")
 
-        # Check if the specified version exists in the directory
         for filename in os.listdir(pkg_path):
             if filename.endswith('.pkg'):
                 pkg_version = filename.split('-')[-1].rstrip(".pkg")
@@ -35,7 +34,7 @@ class VersionCheck(Processor):
                     self.env["version_exists"] = True
                     self.output(f"Version {version} is already downloaded.")
                     return
-        # Version not found
+
         self.env["version_exists"] = False
         self.output(f"Version {version} is not yet downloaded, setting up download...")
 
