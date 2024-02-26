@@ -7,7 +7,7 @@
 	<key>Description</key>
 	<string>Downloads the latest Adobe Acrobat Reader DC.</string>
 	<key>Identifier</key>
-	<string>ch.edu-vd.cipeo.AdobeReaderDC.download</string>
+	<string>ch.edu-vd.cipeo.download.AdobeReaderDC</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
