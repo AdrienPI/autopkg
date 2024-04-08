@@ -44,7 +44,7 @@ class TeamsNotification(Processor):
         app_category = data.get('App_category', '')
         app_name = data.get('App_name', '')
         app_version = data.get('App_version', '')
-        message = f"{summary_text} // Name: {app_name} Version: {app_version} Category: {app_category}"
+        message = f"\u2705 {summary_text} // Name: {app_name} Version: {app_version} Category: {app_category}"
 
         self.send_notification(webhook_url, message)
 
