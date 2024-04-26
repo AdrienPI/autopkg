@@ -9,7 +9,7 @@
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>Audacity</string>
+        <string>VLC</string>
     </dict>
     <key>ParentRecipe</key>
     <string>ch.edu-vd.cipeo.download.VLC</string>
