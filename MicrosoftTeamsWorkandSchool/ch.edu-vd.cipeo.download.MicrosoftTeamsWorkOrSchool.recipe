@@ -7,54 +7,68 @@
       <key>Identifier</key>
       <string>ch.edu-vd.cipeo.download.WorkOrSchool</string>
       <key>MinimumVersion</key>
-      <string>1.0.0</string>
-      <key>Input</key>
-      <dict>
-         <key>NAME</key>
-         <string>Microsoft Teams</string>
-         <key>VENDOR</key>
-         <string>Microsoft</string>
-         <key>SOFTWARETITLE1</key>
-         <string>Teams</string>
-         <key>SOFTWARETITLE2</key>
-         <string>(work or school)</string>
-         <key>PRODUCTID</key>
-         <string>2249065</string>
-         <key>DOWNLOADURL</key>
-		 <string>https://statics.teams.cdn.office.net/production-osx/enterprise/webview2/lkg/MicrosoftTeams.pkg</string>
-      </dict>
+	  <string>1.1</string>
       <key>Process</key>
       <array>
-         <dict>
-            <key>Processor</key>
-            <string>URLDownloader</string>
-            <key>Arguments</key>
-            <dict>
-               <key>url</key>
-               <string>%DOWNLOADURL%</string>
-               <key>filename</key>
-               <string>%VENDOR%%SOFTWARETITLE1%%SOFTWARETITLE2%.pkg</string>
-            </dict>
-         </dict>
-         <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
-         </dict>
-         <dict>
-            <key>Processor</key>
-            <string>CodeSignatureVerifier</string>
-            <key>Arguments</key>
-            <dict>
-               <key>input_path</key>
-               <string>%pathname%</string>
-               <key>expected_authority_names</key>
-               <array>
-                  <string>Developer ID Installer: Microsoft Corporation (UBF8T346G9)</string>
-                  <string>Developer ID Certification Authority</string>
-                  <string>Apple Root CA</string>
-               </array>
-            </dict>
-         </dict>
+          <dict>
+              <key>Arguments</key>
+              <dict>
+                  <key>filename</key>
+                  <string>0409TEAMS21-chk.plist</string>
+                  <key>download_dir</key>
+                  <string>%RECIPE_CACHE_DIR%/DOWNLOAD_XML</string>
+                  <key>url</key>
+                  <string>https://officecdnmac.microsoft.com/pr/C1297A47-86C4-4C1F-97FA-950631F94777/MacAutoupdate/0409TEAMS21-chk.xml</string>
+              </dict>
+              <key>Processor</key>
+              <string>URLDownloader</string>
+          </dict>
+          <dict>
+              <key>Arguments</key>
+              <dict>
+                  <key>info_path</key>
+                  <string>%RECIPE_CACHE_DIR%/DOWNLOAD_XML/0409TEAMS21-chk.plist</string>
+                  <key>plist_keys</key>
+                  <dict>
+                      <key>Update Version</key>
+                      <string>DOWNLOAD_VERSION</string>
+                  </dict>
+              </dict>
+              <key>Processor</key>
+              <string>PlistReader</string>
+          </dict>
+          <dict>
+              <key>Arguments</key>
+              <dict>
+                  <key>filename</key>
+                  <string>%NAME%.pkg</string>
+                  <key>download_dir</key>
+                  <string>%RECIPE_CACHE_DIR%/downloads</string>
+                  <key>url</key>
+                  <string>https://statics.teams.cdn.office.net/production-osx/%DOWNLOAD_VERSION%/MicrosoftTeams.pkg</string>
+              </dict>
+              <key>Processor</key>
+              <string>URLDownloader</string>
+          </dict>
+          <dict>
+              <key>Processor</key>
+              <string>EndOfCheckPhase</string>
+          </dict>
+          <dict>
+              <key>Arguments</key>
+              <dict>
+                  <key>expected_authority_names</key>
+                  <array>
+                      <string>Developer ID Installer: Microsoft Corporation (UBF8T346G9)</string>
+                      <string>Developer ID Certification Authority</string>
+                      <string>Apple Root CA</string>
+                  </array>
+                  <key>input_path</key>
+                  <string>%pathname%</string>
+              </dict>
+              <key>Processor</key>
+              <string>CodeSignatureVerifier</string>
+          </dict>
       </array>
-   </dict>
-</plist>
+  </dict>
+  </plist>
