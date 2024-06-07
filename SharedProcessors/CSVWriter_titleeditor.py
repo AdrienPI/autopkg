@@ -6,10 +6,10 @@ import subprocess
 
 from autopkglib import Processor, ProcessorError
 
-__all__ = ["CSVWriter"]
+__all__ = ["CSVWriter_titleeditor"]
 
 
-class CSVWriter(Processor):
+class CSVWriter_titleeditor(Processor):
     """Writes app version and category to a CSV file."""
 
     input_variables = {
@@ -71,5 +71,5 @@ class CSVWriter(Processor):
         }
 
 if __name__ == "__main__":
-    PROCESSOR = CSVWriter()
+    PROCESSOR = CSVWriter_titleeditor()
     PROCESSOR.execute_shell()
