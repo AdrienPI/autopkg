@@ -32,7 +32,7 @@ class CSVWriter(Processor):
         "app_minimum_version": {
             "required": False,
             "description": "The minimum supported OS for the app, may not exist"
-        }
+        },
         "bundle_identifier": {
             "required": True,
             "description": "Bundle identifier of the app"
