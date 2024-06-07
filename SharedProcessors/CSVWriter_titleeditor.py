@@ -48,9 +48,9 @@ class CSVWriter_titleeditor(Processor):
         app_name = self.env.get("app_name")
         app_version = self.env.get("app_version")
         category = self.env.get("category")
-        bundle_identifier = self.env("bundle_identifier")
+        bundle_identifier = self.env.get("bundle_identifier")
         softwaretitle_name = self.env.get("softwaretitle_name")
-        app_minimum_version = self.env("app_minimum_version")
+        app_minimum_version = self.env.get("app_minimum_version")
         from_patch_management = 1
         loggedInUser = subprocess.check_output("(/bin/ls -l /dev/console | /usr/bin/awk '{ print $3 }')",shell=True).decode("utf-8").rstrip("\n")
         csv_file = f"/Users/{loggedInUser}/Desktop/packagesupload/PKG_Catalog.csv"
