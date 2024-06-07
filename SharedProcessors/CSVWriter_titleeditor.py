@@ -48,7 +48,9 @@ class CSVWriter(Processor):
         app_name = self.env.get("app_name")
         app_version = self.env.get("app_version")
         category = self.env.get("category")
+        bundle_identifier = self.env("bundle_identifier")
         softwaretitle_name = self.env.get("softwaretitle_name")
+        app_minimum_version = self.env("app_minimum_version")
         from_patch_management = 1
         loggedInUser = subprocess.check_output("(/bin/ls -l /dev/console | /usr/bin/awk '{ print $3 }')",shell=True).decode("utf-8").rstrip("\n")
         csv_file = f"/Users/{loggedInUser}/Desktop/packagesupload/PKG_Catalog.csv"
@@ -62,8 +64,8 @@ class CSVWriter(Processor):
             "data": {
                 "App_name": self.env["app_name"],
                 "App_version": self.env["app_version"],
-                "App_category": self.env["category"]
-                "App_minimum_version": self.env["app_minimum_version"]
+                "App_category": self.env["category"],
+                "App_minimum_version": self.env["app_minimum_version"],
                 "App_bundle_identifier": self.env["bundle_identifier"]
             }
         }
