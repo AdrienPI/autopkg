@@ -40,7 +40,7 @@ class CSVWriter_titleeditor(Processor):
     }
     output_variables = {
         "CSVWriter_summary_result": {
-        "description": "App data to output"
+            "description": "App data to output"
         }
     }
 
@@ -52,13 +52,16 @@ class CSVWriter_titleeditor(Processor):
         softwaretitle_name = self.env.get("softwaretitle_name")
         app_minimum_version = self.env.get("app_minimum_version")
         from_patch_management = 1
-        loggedInUser = subprocess.check_output("(/bin/ls -l /dev/console | /usr/bin/awk '{ print $3 }')",shell=True).decode("utf-8").rstrip("\n")
+        loggedInUser = subprocess.check_output("(/bin/ls -l /dev/console | /usr/bin/awk '{ print $3 }')",
+                                               shell=True).decode("utf-8").rstrip("\n")
         csv_file = f"/Users/{loggedInUser}/Desktop/packagesupload/PKG_Catalog.csv"
 
         with open(csv_file, mode="a", newline="") as file:
             writer = csv.writer(file)
-            writer.writerow([app_name, app_version, bundle_identifier, app_minimum_version, category, softwaretitle_name, from_patch_management])
-            
+            writer.writerow(
+                [app_name, app_version, bundle_identifier, app_minimum_version, category, softwaretitle_name,
+                 from_patch_management])
+
         self.env["CSVWriter_summary_result"] = {
             "summary_text": "The following new items were downloaded:",
             "data": {
@@ -69,6 +72,7 @@ class CSVWriter_titleeditor(Processor):
                 "App_bundle_identifier": self.env["bundle_identifier"]
             }
         }
+
 
 if __name__ == "__main__":
     PROCESSOR = CSVWriter_titleeditor()

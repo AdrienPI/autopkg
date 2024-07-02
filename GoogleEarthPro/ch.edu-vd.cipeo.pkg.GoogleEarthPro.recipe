@@ -39,26 +39,22 @@
             <key>Processor</key>
             <string>PkgPayloadUnpacker</string>
         </dict>
-        <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>input_plist_path</key>
-                <string>%RECIPE_CACHE_DIR%/payload/Google Earth Pro.app/Contents/Info.plist</string>
-                <key>plist_version_key</key>
-                <string>CFBundleVersion</string>
-            </dict>
-            <key>Processor</key>
-            <string>Versioner</string>
-        </dict>
 		<dict>
 			<key>Processor</key>
-			<string>com.github.adrienpi.SharedProcessors/VersionCheck</string>
+			<string>PlistReader</string>
 			<key>Arguments</key>
 			<dict>
-			    <key>version</key>
-			    <string>%version%</string>
-			    <key>pkg_path</key>
-			    <string>%RECIPE_CACHE_DIR%</string>
+				<key>info_path</key>
+			    <string>%RECIPE_CACHE_DIR%/payload/Google Earth Pro.app/Contents/info.plist</string>
+			    <key>plist_keys</key>
+			    <dict>
+			        <key>CFBundleIdentifier</key>
+			        <string>bundle_identifier</string>
+					<key>LSMinimumSystemVersion</key>
+					<string>minimum_version</string>
+					<key>CFBundleVersion</key>
+					<string>version</string>
+				</dict>
 			</dict>
 		</dict>
 		<dict>
@@ -98,7 +94,7 @@
 		</dict>
 		<dict>
         	<key>Processor</key>
-        	<string>com.github.adrienpi.SharedProcessors/CSVWriter</string>
+        	<string>com.github.adrienpi.SharedProcessors/CSVWriter_titleeditor</string>
         	<key>Arguments</key>
         	<dict>
 				<key>app_name</key>
@@ -109,6 +105,10 @@
 				<string>Géographie</string>
 				<key>softwaretitle_name</key>
 				<string>Google Earth Pro</string>
+				<key>app_minimum_version</key>
+				<string>%minimum_version%</string>
+				<key>bundle_identifier</key>
+				<string>%bundle_identifier%</string>
 			</dict>
 		</dict>
         <dict>
@@ -135,7 +135,7 @@
 		</dict>
 		<dict>
         	<key>Processor</key>
-        	<string>com.github.adrienpi.SharedProcessors/CSVWriter</string>
+        	<string>com.github.adrienpi.SharedProcessors/CSVWriter_titleeditor</string>
         	<key>Arguments</key>
         	<dict>
 				<key>app_name</key>
@@ -146,6 +146,10 @@
 				<string>Géographie</string>
 				<key>softwaretitle_name</key>
 				<string>Google Earth Pro</string>
+				<key>app_minimum_version</key>
+				<string>%minimum_version%</string>
+				<key>bundle_identifier</key>
+				<string>%bundle_identifier%</string>
 			</dict>
 		</dict>
         <dict>

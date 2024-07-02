@@ -30,6 +30,22 @@
                 <string>%pathname%</string>
             </dict>
         </dict>
+		<dict>
+			<key>Processor</key>
+			<string>PlistReader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>info_path</key>
+			    <string>%pathname%/%app_name%/Contents/info.plist</string>
+			    <key>plist_keys</key>
+			    <dict>
+			        <key>CFBundleIdentifier</key>
+			        <string>bundle_identifier</string>
+					<key>LSMinimumSystemVersion</key>
+					<string>minimum_version</string>
+				</dict>
+			</dict>
+		</dict>
         <dict>
             <key>Processor</key>
             <string>PkgRootCreator</string>
@@ -106,7 +122,7 @@
 		</dict>
 		<dict>
         	<key>Processor</key>
-        	<string>com.github.adrienpi.SharedProcessors/CSVWriter</string>
+        	<string>com.github.adrienpi.SharedProcessors/CSVWriter_titleeditor</string>
         	<key>Arguments</key>
         	<dict>
 				<key>app_name</key>
@@ -117,6 +133,10 @@
 				<string>Arts visuels</string>
 				<key>softwaretitle_name</key>
 				<string>GIMP</string>
+				<key>app_minimum_version</key>
+				<string>%minimum_version%</string>
+				<key>bundle_identifier</key>
+				<string>%bundle_identifier%</string>
 			</dict>
 		</dict>
         <dict>
@@ -161,7 +181,7 @@
 		</dict>
 		<dict>
         	<key>Processor</key>
-        	<string>com.github.adrienpi.SharedProcessors/CSVWriter</string>
+        	<string>com.github.adrienpi.SharedProcessors/CSVWriter_titleeditor</string>
         	<key>Arguments</key>
         	<dict>
 				<key>app_name</key>
@@ -172,6 +192,10 @@
 				<string>Arts visuels</string>
 				<key>softwaretitle_name</key>
 				<string>GIMP</string>
+				<key>app_minimum_version</key>
+				<string>%minimum_version%</string>
+				<key>bundle_identifier</key>
+				<string>%bundle_identifier%</string>
 			</dict>
 		</dict>
 		<dict>

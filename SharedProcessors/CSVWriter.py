@@ -29,6 +29,14 @@ class CSVWriter(Processor):
             "required": True,
             "description": "The softwaretitle app name."
         },
+        "app_minimum_version": {
+            "required": False,
+            "description": "The minimum supported OS for the app, may not exist"
+        }
+        "bundle_identifier": {
+            "required": True,
+            "description": "Bundle identifier of the app"
+        }
     }
     output_variables = {
         "CSVWriter_summary_result": {
@@ -47,7 +55,7 @@ class CSVWriter(Processor):
 
         with open(csv_file, mode="a", newline="") as file:
             writer = csv.writer(file)
-            writer.writerow([app_name, app_version, category, softwaretitle_name, from_patch_management])
+            writer.writerow([app_name, app_version, bundle_identifier, app_minimum_version, category, softwaretitle_name, from_patch_management])
             
         self.env["CSVWriter_summary_result"] = {
             "summary_text": "The following new items were downloaded:",
@@ -55,6 +63,8 @@ class CSVWriter(Processor):
                 "App_name": self.env["app_name"],
                 "App_version": self.env["app_version"],
                 "App_category": self.env["category"]
+                "App_minimum_version": self.env["app_minimum_version"]
+                "App_bundle_identifier": self.env["bundle_identifier"]
             }
         }
 
