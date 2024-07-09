@@ -51,7 +51,7 @@ class TeamsNotification(Processor):
                                         "type": "FactSet",
                                         "facts": [
                                             {
-                                                "title": "Nom Application:",
+                                                "title": "Nom package:",
                                                 "value": app_name
                                             },
                                             {
@@ -89,7 +89,7 @@ class TeamsNotification(Processor):
         app_category = data.get('App_category', '')
         app_name = data.get('App_name', '')
         app_version = data.get('App_version', '')
-        message = f"\u2705 {summary_text}:"
+        message = f"\u2705 {summary_text}"
 
         self.send_notification(webhook_url, message, app_name, app_category, app_version)
 
