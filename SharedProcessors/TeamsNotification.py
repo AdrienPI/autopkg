@@ -8,6 +8,7 @@ from autopkglib import Processor, ProcessorError
 
 __all__ = ["TeamsNotification"]
 
+
 class TeamsNotification(Processor):
     description = "Send notifications to Microsoft Teams via webhook."
     input_variables = {
@@ -22,10 +23,53 @@ class TeamsNotification(Processor):
         },
     }
 
-    def send_notification(self, webhook_url, message):
+    def send_notification(self, webhook_url, message, app_name, app_category, app_version):
         headers = {"Content-Type": "application/json"}
         payload = {
-            "text": message,
+            "type": "message",
+            "attachments": [
+                {
+                    "contentType": "application/vnd.microsoft.card.adaptive",
+                    "content": {
+                        "type": "AdaptiveCard",
+                        "body": [
+                            {
+                                "type": "TextBlock",
+                                "text": "Patch Management",
+                                "weight": "bolder",
+                                "size": "medium"
+                            },
+                            {
+                                "type": "Container",
+                                "items": [
+                                    {
+                                        "type": "TextBlock",
+                                        "text": message,
+                                        "wrap": True
+                                    },
+                                    {
+                                        "type": "FactSet",
+                                        "facts": [
+                                            {
+                                                "title": "Nom Application:",
+                                                "value": app_name
+                                            },
+                                            {
+                                                "title": "Version:",
+                                                "value": app_version
+                                            },
+                                            {
+                                                "title": "Categorie:",
+                                                "value": app_category
+                                            },
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
         }
 
         try:
@@ -38,15 +82,16 @@ class TeamsNotification(Processor):
     def main(self):
         webhook_url = self.env.get("webhook_url")
         payload = self.env["CSVWriter_summary_result"]
-        
+
         summary_text = payload.get('summary_text', {})
         data = payload.get('data', {})
         app_category = data.get('App_category', '')
         app_name = data.get('App_name', '')
         app_version = data.get('App_version', '')
-        message = f"\u2705 {summary_text} // Name: {app_name} Version: {app_version} Category: {app_category}"
+        message = f"\u2705 {summary_text}:"
 
-        self.send_notification(webhook_url, message)
+        self.send_notification(webhook_url, message, app_name, app_category, app_version)
+
 
 if __name__ == "__main__":
     processor = TeamsNotification()
