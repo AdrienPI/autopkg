@@ -167,11 +167,6 @@
 		<dict>
 			<key>Processor</key>
 			<string>com.github.adrienpi.SharedProcessors/TeamsNotification</string>
-			<key>Arguments</key>
-			<dict>
-				<key>webhook_url</key>
-				<string>https://prod-24.westeurope.logic.azure.com:443/workflows/fa7362df893d450b8c36d38b4b02c857/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Yr5MUHTTux4PSMQraUr6YkCwUOH5DkWcvoAJvdY1imE</string>
-			</dict>
 		</dict>
     </array>
 </dict>

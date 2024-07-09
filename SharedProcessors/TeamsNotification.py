@@ -80,8 +80,10 @@ class TeamsNotification(Processor):
             raise ProcessorError(f"Failed to send notification: {e}")
 
     def main(self):
-        #webhook_url = self.env.get("webhook_url")
-        webhook_url = "https://prod-24.westeurope.logic.azure.com:443/workflows/fa7362df893d450b8c36d38b4b02c857/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Yr5MUHTTux4PSMQraUr6YkCwUOH5DkWcvoAJvdY1imE"
+        if self.env.get("webhook_url"):
+            webhook_url = self.env.get("webhook_url")
+        else:
+            webhook_url = "https://prod-24.westeurope.logic.azure.com:443/workflows/fa7362df893d450b8c36d38b4b02c857/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Yr5MUHTTux4PSMQraUr6YkCwUOH5DkWcvoAJvdY1imE"
         payload = self.env["CSVWriter_summary_result"]
 
         summary_text = payload.get('summary_text', {})
