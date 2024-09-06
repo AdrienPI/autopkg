@@ -29,6 +29,10 @@
             </dict>
         </dict>
         <dict>
+			<key>Processor</key>
+			<string>com.github.adrienpi.SharedProcessors/GetUserHome</string>
+		</dict>
+        <dict>
             <key>Processor</key>
             <string>PkgPayloadUnpacker</string>
             <key>Arguments</key>
@@ -75,10 +79,6 @@
               <string>%RECIPE_CACHE_DIR%/AutodeskFusion360-%version%.pkg</string>
            </dict>
         </dict>
-		<dict>
-			<key>Processor</key>
-			<string>com.github.adrienpi.SharedProcessors/GetUserHome</string>
-		</dict>
 		<dict>
         	<key>Processor</key>
         	<string>Copier</string>
