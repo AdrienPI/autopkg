@@ -87,7 +87,7 @@
 		    <key>Arguments</key>
 		    <dict>
 		        <key>predicate</key>
-		        <string>version_exists == True</string>
+		        <string>version_exists == False</string>
 		    </dict>
 		</dict>
         <dict>
