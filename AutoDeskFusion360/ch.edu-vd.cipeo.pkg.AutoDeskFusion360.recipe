@@ -28,6 +28,15 @@
                 <string>%RECIPE_CACHE_DIR%/unpack</string>
             </dict>
         </dict>
+        <dict>
+		    <key>Processor</key>
+		    <string>StopProcessingIf</string>
+		    <key>Arguments</key>
+		    <dict>
+		        <key>predicate</key>
+		        <string>new_package_request == False</string>
+		    </dict>
+		</dict>
          <dict>
             <key>Processor</key>
             <string>PkgPayloadUnpacker</string>
@@ -80,15 +89,6 @@
 					<string>minimum_version</string>
 				</dict>
 			</dict>
-		</dict>
-		<dict>
-		    <key>Processor</key>
-		    <string>StopProcessingIf</string>
-		    <key>Arguments</key>
-		    <dict>
-		        <key>predicate</key>
-		        <string>new_package_request == False</string>
-		    </dict>
 		</dict>
         <dict>
            <key>Processor</key>
