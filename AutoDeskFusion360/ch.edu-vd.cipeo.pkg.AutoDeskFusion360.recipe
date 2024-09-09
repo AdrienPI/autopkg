@@ -87,7 +87,7 @@
 		    <key>Arguments</key>
 		    <dict>
 		        <key>predicate</key>
-		        <string>new_package_request == FALSE</string>
+		        <string>new_package_request == False</string>
 		    </dict>
 		</dict>
         <dict>
