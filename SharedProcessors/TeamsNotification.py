@@ -83,7 +83,7 @@ class TeamsNotification(Processor):
         if self.env.get("webhook_url"):
             webhook_url = self.env.get("webhook_url")
         else:
-            webhook_url = "https://prod-171.westeurope.logic.azure.com:443/workflows/dc6725400bf941f188dce050ec33ac24/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=qDhinZO3HJ4u2oIfY_w46A_gHG7c1MiPNREGREsgQLk"
+            webhook_url = "https://prod-143.westeurope.logic.azure.com:443/workflows/6c8ec209e78242e7b853984b663e5bcd/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=2DwpEaregqw3PD0NxhTrOF4WkQ8FovjxJZlWPiEMuPs"
         payload = self.env["CSVWriter_summary_result"]
 
         summary_text = payload.get('summary_text', {})
