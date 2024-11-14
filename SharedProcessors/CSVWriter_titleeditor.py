@@ -52,8 +52,8 @@ class CSVWriter_titleeditor(Processor):
         softwaretitle_name = self.env.get("softwaretitle_name")
         app_minimum_version = self.env.get("app_minimum_version")
         from_patch_management = 1
-        loggedInUser = subprocess.check_output("(/bin/ls -l /dev/console | /usr/bin/awk '{ print $3 }')",
-                                               shell=True).decode("utf-8").rstrip("\n")
+        command = "scutil <<< 'show State:/Users/ConsoleUser' | awk '/Name :/ && ! /loginwindow/ { print $3 }'"
+        loggedInUser = subprocess.check_output(command, shell=True).decode("utf-8").rstrip("\n")
         csv_file = f"/Users/{loggedInUser}/Desktop/packagesupload/PKG_Catalog.csv"
 
         with open(csv_file, mode="a", newline="") as file:
