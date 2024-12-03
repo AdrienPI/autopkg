@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest stable Arduino.
+
+To download the Intel version use "64bit" in the ARCH_TYPE variable.
+To download the Apple Silicon version use "arm64" in the ARCH_TYPE variable.</string>
+    <key>Identifier</key>
+    <string>ch.edu-vd.cipeo.download.arduino</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Arduino</string>
+        <key>ARCH_TYPE</key>
+        <string>64bit</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>1.1</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>github_repo</key>
+                <string>arduino/arduino-ide</string>
+                <key>asset_regex</key>
+                <string>arduino-ide_([0-9]+(\.[0-9]+)+)_macOS_%ARCH_TYPE%\.dmg$</string>
+            </dict>
+            <key>Processor</key>
+            <string>GitHubReleasesInfoProvider</string>
+        </dict>
+       <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>filename</key>
+                <string>%NAME%-%ARCH_TYPE%-%version%.dmg</string>
+            </dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%pathname%/Arduino IDE.app</string>
+                <key>requirement</key>
+                <string>identifier "cc.arduino.IDE2" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "7KT7ZWMCJT"</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
