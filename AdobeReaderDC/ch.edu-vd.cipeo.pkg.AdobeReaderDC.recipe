@@ -9,7 +9,7 @@
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>AdobeReaderDC</string>
+        <string>AdobeAcrobatReader</string>
         <key>VERSIONTYPE</key>
         <string>CFBundleShortVersionString</string>
     </dict>
@@ -136,7 +136,7 @@
 				<key>category</key>
 				<string>Bureautique</string>
 				<key>softwaretitle_name</key>
-				<string>Adobe Acrobat Reader DC</string>
+				<string>Adobe Acrobat Reader</string>
 				<key>app_minimum_version</key>
 				<string>%minimum_version%</string>
 				<key>bundle_identifier</key>
@@ -177,7 +177,7 @@
 				<key>category</key>
 				<string>Bureautique</string>
 				<key>softwaretitle_name</key>
-				<string>Adobe Acrobat Reader DC</string>
+				<string>Adobe Acrobat Reader</string>
 				<key>app_minimum_version</key>
 				<string>%minimum_version%</string>
 				<key>bundle_identifier</key>

@@ -11,7 +11,7 @@
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>AdobeReaderDC</string>
+		<string>AdobeAcrobatReader</string>
 		<key>OS_VERSION</key>
 		<string>Mac OS 12.0.0</string>
 	</dict>
