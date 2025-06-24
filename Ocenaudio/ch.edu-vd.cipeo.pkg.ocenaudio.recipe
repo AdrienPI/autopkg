@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Build a package of Ocenaudio</string>
     <key>Identifier</key>
-    <string>ch.edu-vd.cipeo.pkg.arduino</string>
+    <string>ch.edu-vd.cipeo.pkg.ocenaudio</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
