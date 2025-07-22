@@ -133,7 +133,7 @@
 				<key>app_version</key>
 				<string>%version%</string>
 				<key>category</key>
-				<string>Graphisme et animation</string>
+				<string>Activités créatrices et manuelles</string>
 				<key>softwaretitle_name</key>
 				<string>AutoDesk Fusion 360</string>
 				<key>app_minimum_version</key>
@@ -174,7 +174,7 @@
 				<key>app_version</key>
 				<string>%version%</string>
 				<key>category</key>
-				<string>Graphisme et animation</string>
+				<string>Activités créatrices et manuelles</string>
 				<key>softwaretitle_name</key>
 				<string>AutoDesk Fusion 360</string>
 				<key>app_minimum_version</key>
