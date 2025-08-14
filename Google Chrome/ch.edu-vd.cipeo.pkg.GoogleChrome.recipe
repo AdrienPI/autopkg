@@ -128,7 +128,7 @@
 				<key>app_version</key>
 				<string>%version%</string>
 				<key>category</key>
-				<string>Navigateur</string>
+				<string>Utilitaires</string>
 				<key>softwaretitle_name</key>
 				<string>Google Chrome</string>
 				<key>app_minimum_version</key>
@@ -187,7 +187,7 @@
 				<key>app_version</key>
 				<string>%version%</string>
 				<key>category</key>
-				<string>Navigateur</string>
+				<string>Utilitaires</string>
 				<key>softwaretitle_name</key>
 				<string>Google Chrome</string>
 				<key>app_minimum_version</key>
