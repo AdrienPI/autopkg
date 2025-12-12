@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the current release version of LibreOffice, merge it with language pack and builds a package.</string>
+
+    <key>Identifier</key>
+    <string>ch.edu-vd.cipeo.pkg.libreoffice</string>
+
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>LibreOffice</string>
+        <key>LANGUAGE_CODE</key>
+        <string>fr</string>
+        <key>INSTALL_DIR</key>
+        <string>Applications</string>
+    </dict>
+
+    <key>ParentRecipe</key>
+    <string>ch.edu-vd.cipeo.download.libreoffice</string>
+
+    <key>MinimumVersion</key>
+    <string>0.4.0</string>
+
+    <key>Process</key>
+    <array>
+
+        <!-- 1. Get current user -->
+        <dict>
+            <key>Processor</key>
+            <string>com.github.adrienpi.SharedProcessors/GetUserHome</string>
+        </dict>
+
+        <!-- 2. Read Info.plist -->
+        <dict>
+            <key>Processor</key>
+            <string>PlistReader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>info_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/%INSTALL_DIR%/LibreOffice.app/Contents/Info.plist</string>
+                <key>plist_keys</key>
+                <dict>
+                    <key>CFBundleShortVersionString</key>
+                    <string>version</string>
+                    <key>CFBundleIdentifier</key>
+                    <string>bundle_identifier</string>
+                    <key>CFBundleName</key>
+                    <string>app_name</string>
+                    <key>LSMinimumSystemVersion</key>
+                    <string>minimum_version</string>
+                </dict>
+            </dict>
+        </dict>
+
+        <!-- 3. Create PackageInfo template -->
+        <dict>
+            <key>Processor</key>
+            <string>FileCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>file_path</key>
+                <string>%RECIPE_CACHE_DIR%/PackageInfoTemplate</string>
+                <key>file_content</key>
+                <string>&lt;?xml version="1.0" encoding="utf-8" standalone="no"?&gt;
+&lt;pkg-info overwrite-permissions="false" followSymLinks="true"/&gt;
+</string>
+            </dict>
+        </dict>
+
+        <!-- 4. Generate PackageInfo -->
+        <dict>
+            <key>Processor</key>
+            <string>PkgInfoCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>infofile</key>
+                <string>%RECIPE_CACHE_DIR%/PackageInfo</string>
+                <key>pkgtype</key>
+                <string>flat</string>
+                <key>version</key>
+                <string>%version%</string>
+                <key>template_path</key>
+                <string>%RECIPE_CACHE_DIR%/PackageInfoTemplate</string>
+            </dict>
+        </dict>
+
+        <!-- 5. Build the main package -->
+        <dict>
+            <key>Processor</key>
+            <string>PkgCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_request</key>
+                <dict>
+                    <key>pkgname</key>
+                    <string>%NAME%-%version%</string>
+                    <key>id</key>
+                    <string>org.libreoffice.libreoffice-%LANGUAGE_CODE%</string>
+                    <key>options</key>
+                    <string>purge_ds_store</string>
+                    <key>chown</key>
+                    <array>
+                        <dict>
+                            <key>path</key>
+                            <string>/</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>group</key>
+                            <string>admin</string>
+                            <key>mode</key>
+                            <string>0775</string>
+                        </dict>
+                    </array>
+                </dict>
+            </dict>
+        </dict>
+
+        <!-- At this point %pkg_path% = the package created by PkgCreator -->
+
+        <!-- 6. Copy main pkg with its version -->
+        <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%pkg_path%</string>
+                <key>destination_path</key>
+                <string>/Users/%current_user%/Desktop/packagesupload/%NAME%-%version%.pkg</string>
+            </dict>
+        </dict>
+
+        <!-- 7. CSV metadata for versioned pkg -->
+        <dict>
+            <key>Processor</key>
+            <string>com.github.adrienpi.SharedProcessors/CSVWriter_titleeditor</string>
+            <key>Arguments</key>
+            <dict>
+                <key>app_name</key>
+                <string>%NAME%-%version%.pkg</string>
+                <key>app_version</key>
+                <string>%version%</string>
+                <key>category</key>
+                <string>Bureautique</string>
+                <key>softwaretitle_name</key>
+                <string>LibreOffice</string>
+                <key>app_minimum_version</key>
+                <string>%minimum_version%</string>
+                <key>bundle_identifier</key>
+                <string>%bundle_identifier%</string>
+            </dict>
+        </dict>
+
+        <!-- 8. Create latest pkg -->
+        <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%pkg_path%</string>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%-latest.pkg</string>
+            </dict>
+        </dict>
+
+        <!-- 9. Copy latest pkg to Desktop -->
+        <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%-latest.pkg</string>
+                <key>destination_path</key>
+                <string>/Users/%current_user%/Desktop/packagesupload/%NAME%-latest.pkg</string>
+            </dict>
+        </dict>
+
+        <!-- 10. CSV metadata for latest pkg -->
+        <dict>
+            <key>Processor</key>
+            <string>com.github.adrienpi.SharedProcessors/CSVWriter_titleeditor</string>
+            <key>Arguments</key>
+            <dict>
+                <key>app_name</key>
+                <string>%NAME%-latest.pkg</string>
+                <key>app_version</key>
+                <string>%version%</string>
+                <key>category</key>
+                <string>Bureautique</string>
+                <key>softwaretitle_name</key>
+                <string>LibreOffice</string>
+                <key>app_minimum_version</key>
+                <string>%minimum_version%</string>
+                <key>bundle_identifier</key>
+                <string>%bundle_identifier%</string>
+            </dict>
+        </dict>
+
+        <!-- 11. Teams Notification -->
+        <dict>
+            <key>Processor</key>
+            <string>com.github.adrienpi.SharedProcessors/TeamsNotification</string>
+        </dict>
+
+    </array>
+</dict>
+</plist>
