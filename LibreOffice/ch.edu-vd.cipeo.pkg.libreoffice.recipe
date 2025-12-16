@@ -54,6 +54,26 @@
                 </dict>
             </dict>
         </dict>
+        <dict>
+			<key>Processor</key>
+			<string>com.github.adrienpi.SharedProcessors/VersionCheck</string>
+			<key>Arguments</key>
+			<dict>
+			    <key>version</key>
+			    <string>%version%</string>
+			    <key>pkg_path</key>
+			    <string>%RECIPE_CACHE_DIR%</string>
+			</dict>
+		</dict>
+        <dict>
+		    <key>Processor</key>
+		    <string>StopProcessingIf</string>
+		    <key>Arguments</key>
+		    <dict>
+		        <key>predicate</key>
+		        <string>version_exists == True</string>
+		    </dict>
+		</dict>
 
         <!-- 3. Create PackageInfo template -->
         <dict>
