@@ -74,6 +74,27 @@
                     <string>ch.edu-vd.cipeo.pkg.lmstudio</string>
                     <key>version</key>
                     <string>%version%</string>
+                    <key>scripts</key>
+                    <string>%RECIPE_CACHE_DIR%/scripts</string>
+                    <key>chown</key>
+                    <array>
+                        <dict>
+                            <key>path</key>
+                            <string>Applications</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>group</key>
+                            <string>wheel</string>
+                        </dict>
+                        <dict>
+                            <key>path</key>
+                            <string>Library</string>
+                            <key>user</key>
+                            <string>root</string>
+                            <key>group</key>
+                            <string>wheel</string>
+                        </dict>
+                    </array>
                 </dict>
             </dict>
         </dict>
