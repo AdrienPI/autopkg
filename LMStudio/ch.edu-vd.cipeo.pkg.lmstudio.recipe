@@ -99,17 +99,6 @@
             </dict>
         </dict>
         <dict>
-           <key>Processor</key>
-           <string>PathDeleter</string>
-           <key>Arguments</key>
-           <dict>
-              <key>path_list</key>
-              <array>
-                 <string>%RECIPE_CACHE_DIR%/pkgroot/Applications/LM Studio.app</string>
-              </array>
-           </dict>
-        </dict>
-        <dict>
             <key>Arguments</key>
             <dict>
                 <key>predicate</key>
@@ -159,6 +148,17 @@
               <string>/Users/%current_user%/Desktop/packagesupload/%NAME%-latest.pkg</string>
            </dict>
         </dict>
+        <dict>
+        <key>Processor</key>
+        	<string>Versioner</string>
+        	<key>Arguments</key>
+        	<dict>
+        	    <key>input_plist_path</key>
+        	    <string>%RECIPE_CACHE_DIR%/pkgroot/Applications/LM Studio.app/Contents/Info.plist</string>
+        	    <key>plist_version_key</key>
+        	    <string>CFBundleShortVersionString</string>
+        	</dict>
+        </dict>
 		<dict>
         	<key>Processor</key>
         	<string>com.github.adrienpi.SharedProcessors/CSVWriter_titleeditor</string>
@@ -178,6 +178,17 @@
 				<string>%bundle_identifier%</string>
 			</dict>
 		</dict>
+		<dict>
+           <key>Processor</key>
+           <string>PathDeleter</string>
+           <key>Arguments</key>
+           <dict>
+              <key>path_list</key>
+              <array>
+                 <string>%RECIPE_CACHE_DIR%/pkgroot/Applications/LM Studio.app</string>
+              </array>
+           </dict>
+        </dict>
 		<dict>
 			<key>Processor</key>
 			<string>com.github.adrienpi.SharedProcessors/TeamsNotification</string>
