@@ -13,7 +13,7 @@
 		<key>LANGUAGE_CODE</key>
 		<string>fr</string>
 		<key>RELEASE</key>
-		<string>Latest</string>
+		<string>Previous</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.2.0</string>
@@ -25,28 +25,13 @@
 			<key>Arguments</key>
 			<dict>
 				<key>re_pattern</key>
-				<string>LibreOffice (?P&lt;smallversion&gt;\d+\.\d+)(\.\d+)? [^ ]+ - %RELEASE% Release</string>
+				<string>LibreOffice (?P&lt;version&gt;\d+\.\d+(\.\d+)?) \(\w+ \d{2}, \d{4}\) - %RELEASE% Branch</string>
 				<key>re_flags</key>
                 <array>
                     <string>IGNORECASE</string>
                 </array>
 				<key>url</key>
-				<string>https://www.libreoffice.org/download/release-notes/</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>URLTextSearcher</string>
-			<key>Arguments</key>
-			<dict>
-				<key>re_pattern</key>
-				<string>LibreOffice (?P&lt;version&gt;%smallversion%\.\d+) release notes</string>
-				<key>re_flags</key>
-                <array>
-                    <string>IGNORECASE</string>
-                </array>
-				<key>url</key>
-				<string>https://www.libreoffice.org/download/download/</string>
+				<string>https://www.libreoffice.org/release-notes</string>
 			</dict>
 		</dict>
 		<dict>
