@@ -53,6 +53,8 @@
                 <string>%pathname%/%app_name%</string>
                 <key>destination_path</key>
                 <string>%RECIPE_CACHE_DIR%/pkgroot/Applications/%app_name%</string>
+                <key>overwrite</key>
+                <true/>
             </dict>
         </dict>
 		<dict>
