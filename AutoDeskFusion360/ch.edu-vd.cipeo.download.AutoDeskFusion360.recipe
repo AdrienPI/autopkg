@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the latest version of Autodesk Fusion 360 for Education.</string>
     <key>Identifier</key>
-    <string>com.github.nstrauss.download.AutodeskFusion360</string>
+    <string>ch.edu-vd.cipeo.download.AutoDeskFusion360</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
