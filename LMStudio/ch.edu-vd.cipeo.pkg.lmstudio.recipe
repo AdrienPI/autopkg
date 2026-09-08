@@ -128,73 +128,43 @@
 				<string>%bundle_identifier%</string>
 			</dict>
 		</dict>
-		<dict>
-           <key>Processor</key>
-           <string>PkgCopier</string>
-           <key>Arguments</key>
-           <dict>
-              <key>source_pkg</key>
-              <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
-              <key>pkg_path</key>
-              <string>/Users/%current_user%/Desktop/packagesupload/%NAME%-latest.pkg</string>
-           </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PkgCopier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_pkg</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
+                <key>pkg_path</key>
+                <string>/Users/%current_user%/Desktop/packagesupload/%NAME%-%version%.pkg</string>
+            </dict>
         </dict>
         <dict>
-        <key>Processor</key>
-        	<string>Versioner</string>
-        	<key>Arguments</key>
-        	<dict>
-        	    <key>input_plist_path</key>
-        	    <string>%RECIPE_CACHE_DIR%/pkgroot/Applications/LM Studio.app/Contents/Info.plist</string>
-        	    <key>plist_version_key</key>
-        	    <string>CFBundleShortVersionString</string>
-        	</dict>
+            <key>Processor</key>
+            <string>PkgCopier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_pkg</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
+                <key>pkg_path</key>
+                <string>/Users/%current_user%/Desktop/packagesupload/%NAME%-latest.pkg</string>
+            </dict>
         </dict>
-		<dict>
-        	<key>Processor</key>
-        	<string>com.github.adrienpi.SharedProcessors/CSVWriter_titleeditor</string>
-        	<key>Arguments</key>
-        	<dict>
-				<key>app_name</key>
-				<string>%NAME%-latest.pkg</string>
-				<key>app_version</key>
-				<string>%version%</string>
-				<key>category</key>
-				<string>Science informatique</string>
-				<key>softwaretitle_name</key>
-				<string>LM Studio</string>
-				<key>app_minimum_version</key>
-				<string>%minimum_version%</string>
-				<key>bundle_identifier</key>
-				<string>%bundle_identifier%</string>
-			</dict>
-		</dict>
-		<dict>
-           <key>Processor</key>
-           <string>PkgCopier</string>
-           <key>Arguments</key>
-           <dict>
-              <key>source_pkg</key>
-              <string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
-              <key>pkg_path</key>
-              <string>/Users/%current_user%/Desktop/packagesupload/%NAME%-%version%.pkg</string>
-           </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PathDeleter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>path_list</key>
+                <array>
+                    <string>%RECIPE_CACHE_DIR%/pkgroot/Applications/LM Studio.app</string>
+                </array>
+            </dict>
         </dict>
-		<dict>
-           <key>Processor</key>
-           <string>PathDeleter</string>
-           <key>Arguments</key>
-           <dict>
-              <key>path_list</key>
-              <array>
-                 <string>%RECIPE_CACHE_DIR%/pkgroot/Applications/LM Studio.app</string>
-              </array>
-           </dict>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.adrienpi.SharedProcessors/TeamsNotification</string>
         </dict>
-		<dict>
-			<key>Processor</key>
-			<string>com.github.adrienpi.SharedProcessors/TeamsNotification</string>
-		</dict>
     </array>
 </dict>
 </plist>
