@@ -41,6 +41,8 @@
 			        <string>bundle_identifier</string>
 					<key>LSMinimumSystemVersion</key>
 					<string>minimum_version</string>
+					<key>CFBundleShortVersionString</string>
+					<string>real_version</string>
 				</dict>
 			</dict>
 		</dict>
@@ -158,7 +160,7 @@
 				<key>app_name</key>
 				<string>%NAME%-latest.pkg</string>
 				<key>app_version</key>
-				<string>%version%</string>
+				<string>%real_version%</string>
 				<key>category</key>
 				<string>Science informatique</string>
 				<key>softwaretitle_name</key>
