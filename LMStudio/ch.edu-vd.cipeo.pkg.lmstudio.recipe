@@ -151,6 +151,25 @@
             </dict>
         </dict>
         <dict>
+        	<key>Processor</key>
+        	<string>com.github.adrienpi.SharedProcessors/CSVWriter_titleeditor</string>
+        	<key>Arguments</key>
+        	<dict>
+				<key>app_name</key>
+				<string>%NAME%-latest.pkg</string>
+				<key>app_version</key>
+				<string>%version%</string>
+				<key>category</key>
+				<string>Science informatique</string>
+				<key>softwaretitle_name</key>
+				<string>LM Studio</string>
+				<key>app_minimum_version</key>
+				<string>%minimum_version%</string>
+				<key>bundle_identifier</key>
+				<string>%bundle_identifier%</string>
+			</dict>
+		</dict>
+        <dict>
             <key>Processor</key>
             <string>PathDeleter</string>
             <key>Arguments</key>
