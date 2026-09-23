@@ -41,7 +41,7 @@
 			        <string>bundle_identifier</string>
 					<key>LSMinimumSystemVersion</key>
 					<string>minimum_version</string>
-					<key>CFBundleShortVersionString</string>
+					<key>CFBundleShortVersionString</key>
 					<string>real_version</string>
 				</dict>
 			</dict>
