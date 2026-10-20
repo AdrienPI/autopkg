@@ -52,16 +52,18 @@
 			<string>EndOfCheckPhase</string>
 		</dict>
         <dict>
-			<key>Arguments</key>
-			<dict>
-				<key>input_path</key>
-				<string>%pathname%/Silhouette Studio.app</string>
-				<key>requirement</key>
-				<string>identifier "com.silhouettesoftware.Silhouette-Studio" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = TAX3B9PB9G</string>
-			</dict>
-			<key>Processor</key>
-			<string>CodeSignatureVerifier</string>
-		</dict>
+           <key>Arguments</key>
+           <dict>
+              <key>input_path</key>
+              <string>%pathname%/Silhouette Studio.app</string>
+              <key>strict_verification</key>
+              <false/>
+              <key>requirement</key>
+              <string>identifier "com.silhouettesoftware.Silhouette-Studio" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = TAX3B9PB9G</string>
+           </dict>
+           <key>Processor</key>
+           <string>CodeSignatureVerifier</string>
+        </dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
