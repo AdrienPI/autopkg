@@ -26,14 +26,10 @@
 
     <key>Process</key>
     <array>
-
-        <!-- 1. Get current user -->
         <dict>
             <key>Processor</key>
             <string>com.github.adrienpi.SharedProcessors/GetUserHome</string>
         </dict>
-
-        <!-- 2. Read Info.plist -->
         <dict>
             <key>Processor</key>
             <string>PlistReader</string>
@@ -74,8 +70,6 @@
 		        <string>version_exists == True</string>
 		    </dict>
 		</dict>
-
-        <!-- 3. Create PackageInfo template -->
         <dict>
             <key>Processor</key>
             <string>FileCreator</string>
@@ -89,8 +83,6 @@
 </string>
             </dict>
         </dict>
-
-        <!-- 4. Generate PackageInfo -->
         <dict>
             <key>Processor</key>
             <string>PkgInfoCreator</string>
@@ -106,8 +98,6 @@
                 <string>%RECIPE_CACHE_DIR%/PackageInfoTemplate</string>
             </dict>
         </dict>
-
-        <!-- 5. Build the main package -->
         <dict>
             <key>Processor</key>
             <string>PkgCreator</string>
@@ -137,10 +127,6 @@
                 </dict>
             </dict>
         </dict>
-
-        <!-- At this point %pkg_path% = the package created by PkgCreator -->
-
-        <!-- 6. Copy main pkg with its version -->
         <dict>
             <key>Processor</key>
             <string>Copier</string>
@@ -152,8 +138,6 @@
                 <string>/Users/%current_user%/Desktop/packagesupload/%NAME%-%version%.pkg</string>
             </dict>
         </dict>
-
-        <!-- 7. CSV metadata for versioned pkg -->
         <dict>
             <key>Processor</key>
             <string>com.github.adrienpi.SharedProcessors/CSVWriter_titleeditor</string>
@@ -173,8 +157,6 @@
                 <string>%bundle_identifier%</string>
             </dict>
         </dict>
-
-        <!-- 8. Create latest pkg -->
         <dict>
             <key>Processor</key>
             <string>Copier</string>
@@ -186,8 +168,6 @@
                 <string>%RECIPE_CACHE_DIR%/%NAME%-latest.pkg</string>
             </dict>
         </dict>
-
-        <!-- 9. Copy latest pkg to Desktop -->
         <dict>
             <key>Processor</key>
             <string>Copier</string>
@@ -199,8 +179,6 @@
                 <string>/Users/%current_user%/Desktop/packagesupload/%NAME%-latest.pkg</string>
             </dict>
         </dict>
-
-        <!-- 10. CSV metadata for latest pkg -->
         <dict>
             <key>Processor</key>
             <string>com.github.adrienpi.SharedProcessors/CSVWriter_titleeditor</string>
@@ -220,8 +198,6 @@
                 <string>%bundle_identifier%</string>
             </dict>
         </dict>
-
-        <!-- 11. Teams Notification -->
         <dict>
             <key>Processor</key>
             <string>com.github.adrienpi.SharedProcessors/TeamsNotification</string>

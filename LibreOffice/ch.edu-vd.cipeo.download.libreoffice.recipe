@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>This recipe downloads latest LibreOffice and the language pack of the specified language.</string>
+	<string>Downloads the LibreOffice version listed on the release-notes page for the branch set in RELEASE (Previous = mature branch) and the language pack of the specified language from the official Document Foundation server. For Apple Silicon, override ARCH_DIR=aarch64 and ARCH_FILE=aarch64.</string>
 	<key>Identifier</key>
 	<string>ch.edu-vd.cipeo.download.libreoffice</string>
 	<key>Input</key>
@@ -14,6 +14,12 @@
 		<string>fr</string>
 		<key>RELEASE</key>
 		<string>Previous</string>
+		<key>INSTALL_DIR</key>
+		<string>Applications</string>
+		<key>ARCH_DIR</key>
+		<string>x86_64</string>
+		<key>ARCH_FILE</key>
+		<string>x86-64</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.2.0</string>
@@ -25,13 +31,13 @@
 			<key>Arguments</key>
 			<dict>
 				<key>re_pattern</key>
-				<string>LibreOffice (?P&lt;version&gt;\d+\.\d+(\.\d+)?) \(\w+ \d{2}, \d{4}\) - %RELEASE% Branch</string>
+				<string>LibreOffice (?P&lt;version&gt;\d+\.\d+(?:\.\d+)?) \(\w+ \d{1,2}, \d{4}\) - %RELEASE% Branch</string>
 				<key>re_flags</key>
-                <array>
-                    <string>IGNORECASE</string>
-                </array>
+				<array>
+					<string>IGNORECASE</string>
+				</array>
 				<key>url</key>
-				<string>https://www.libreoffice.org/release-notes</string>
+				<string>https://www.libreoffice.org/release-notes/</string>
 			</dict>
 		</dict>
 		<dict>
@@ -40,7 +46,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>https://download.documentfoundation.org/libreoffice/stable/%version%/mac/x86_64/LibreOffice_%version%_MacOS_x86-64_langpack_%LANGUAGE_CODE%.dmg</string>
+				<string>https://download.documentfoundation.org/libreoffice/stable/%version%/mac/%ARCH_DIR%/LibreOffice_%version%_MacOS_%ARCH_FILE%_langpack_%LANGUAGE_CODE%.dmg</string>
 			</dict>
 		</dict>
 		<dict>
@@ -49,7 +55,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>https://mirror.gofoss.xyz/libreoffice/libreoffice/stable/%version%/mac/x86_64/LibreOffice_%version%_MacOS_x86-64.dmg</string>
+				<string>https://download.documentfoundation.org/libreoffice/stable/%version%/mac/%ARCH_DIR%/LibreOffice_%version%_MacOS_%ARCH_FILE%.dmg</string>
 			</dict>
 		</dict>
 		<dict>
@@ -66,7 +72,7 @@
 				<key>requirement</key>
 				<string>(identifier "org.libreoffice.script.LibreOffice" or identifier "org.libreoffice.script") and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "7P5S3ZLCN7"</string>
 				<key>strict_verification</key>
-				<true />
+				<true/>
 			</dict>
 		</dict>
 		<dict>
@@ -74,12 +80,12 @@
 			<string>Copier</string>
 			<key>Arguments</key>
 			<dict>
-			    <key>source_path</key>
-			    <string>%RECIPE_CACHE_DIR%/downloads/LibreOffice_%version%_MacOS_x86-64.dmg/LibreOffice.app</string>
-	            <key>destination_path</key>
-	            <string>%RECIPE_CACHE_DIR%/downloads/LibreOffice.app</string>
-	            <key>overwrite</key>
-	            <true/>
+				<key>source_path</key>
+				<string>%RECIPE_CACHE_DIR%/downloads/LibreOffice_%version%_MacOS_%ARCH_FILE%.dmg/LibreOffice.app</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/downloads/LibreOffice.app</string>
+				<key>overwrite</key>
+				<true/>
 			</dict>
 		</dict>
 		<dict>
@@ -87,12 +93,12 @@
 			<string>Copier</string>
 			<key>Arguments</key>
 			<dict>
-			    <key>source_path</key>
-			    <string>%RECIPE_CACHE_DIR%/downloads/LibreOffice_%version%_MacOS_x86-64_langpack_%LANGUAGE_CODE%.dmg/LibreOffice Language Pack.app</string>
-	            <key>destination_path</key>
-	            <string>%RECIPE_CACHE_DIR%/downloads/LibreOffice-LanguagePack.app</string>
-	            <key>overwrite</key>
-	            <true/>
+				<key>source_path</key>
+				<string>%RECIPE_CACHE_DIR%/downloads/LibreOffice_%version%_MacOS_%ARCH_FILE%_langpack_%LANGUAGE_CODE%.dmg/LibreOffice Language Pack.app</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/downloads/LibreOffice-LanguagePack.app</string>
+				<key>overwrite</key>
+				<true/>
 			</dict>
 		</dict>
 		<dict>
@@ -115,8 +121,8 @@
 				<string>%RECIPE_CACHE_DIR%/downloads/LibreOffice.app</string>
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/%NAME%/%INSTALL_DIR%/LibreOffice.app</string>
-	            <key>overwrite</key>
-	            <true/>
+				<key>overwrite</key>
+				<true/>
 			</dict>
 		</dict>
 		<dict>
@@ -125,7 +131,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>pattern</key>
-				<string>%RECIPE_CACHE_DIR%/downloads/%NAME%-LanguagePack.app/**/tarball.tar.bz2</string>
+				<string>%RECIPE_CACHE_DIR%/downloads/LibreOffice-LanguagePack.app/**/tarball.tar.bz2</string>
 			</dict>
 		</dict>
 		<dict>
@@ -135,6 +141,8 @@
 			<dict>
 				<key>archive_path</key>
 				<string>%found_filename%</string>
+				<key>archive_format</key>
+				<string>tar_bzip2</string>
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/%NAME%/%INSTALL_DIR%/LibreOffice.app</string>
 			</dict>
