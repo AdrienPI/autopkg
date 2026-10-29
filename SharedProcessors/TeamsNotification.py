@@ -3,8 +3,12 @@
 
 import json
 import requests
+import truststore
 
 from autopkglib import Processor, ProcessorError
+
+# Use the macOS Keychain (system trust store) for SSL verification
+truststore.inject_into_ssl()
 
 __all__ = ["TeamsNotification"]
 
